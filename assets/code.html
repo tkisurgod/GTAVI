@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@400;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#151123;}body{overscroll-behavior-y:none;color:#e7def9;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#3b364b", "primary-fixed-dim": "#ffb1c5", "surface-container-high": "#2c273b", "surface-dim": "#151123", "on-secondary-container": "#5c2800", "error-container": "#93000a", "tertiary-container": "#00a0aa", "on-tertiary": "#00363a", "primary-container": "#ff4a8e", "secondary-fixed": "#ffdbc8", "on-tertiary-container": "#002f33", "primary": "#ffb1c5", "on-tertiary-fixed": "#002022", "inverse-surface": "#e7def9", "on-surface": "#e7def9", "primary-fixed": "#ffd9e1", "inverse-primary": "#ba005c", "surface-variant": "#373246", "surface-container": "#211d30", "secondary-fixed-dim": "#ffb68a", "surface-container-highest": "#373246", "surface": "#151123", "tertiary": "#00dbe9", "error": "#ffb4ab", "secondary": "#ffb68a", "on-error": "#690005", "on-tertiary-fixed-variant": "#004f54", "on-secondary": "#522300", "outline-variant": "#5b3f46", "on-primary-container": "#590028", "on-secondary-fixed": "#321300", "surface-container-lowest": "#100b1e", "on-primary-fixed-variant": "#8f0045", "surface-tint": "#ffb1c5", "on-primary": "#65002f", "outline": "#aa888f", "on-surface-variant": "#e3bdc5", "on-background": "#e7def9", "surface-container-low": "#1d192c", "tertiary-fixed": "#7df4ff", "secondary-container": "#ff7b00", "tertiary-fixed-dim": "#00dbe9", "on-secondary-fixed-variant": "#743500", "on-error-container": "#ffdad6", "background": "#151123", "on-primary-fixed": "#3f001b", "inverse-on-surface": "#322d42" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1.5rem", "margin-mobile": "1.25rem", "margin": "3rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter-mobile": "1rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem" }, "fontFamily": { "body-lg": ["Outfit"], "body-md": ["Outfit"], "label-lg": ["Space Grotesk"], "headline-sm": ["Outfit"], "display-xl": ["Anton"], "display-xl-mobile": ["Anton"], "headline-lg-mobile": ["Anton"], "body-sm": ["Outfit"], "headline-lg": ["Anton"], "label-sm": ["Space Grotesk"], "headline-md": ["Anton"], "label-md": ["Space Grotesk"] }, "fontSize": { "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-xl": ["72px", { "lineHeight": "76px", "letterSpacing": "0.04em", "fontWeight": "400" }], "display-xl-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "0.03em", "fontWeight": "400" }], "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "0.03em", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-md": ["32px", { "lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }] } } } }</script><style>
+    .hero-video-card {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-height: clamp(460px, 58vw, 820px);
+      padding-left: clamp(1rem, 5vw, 5rem) !important;
+      padding-right: clamp(1rem, 5vw, 5rem) !important;
+    }
+    .hero-video-card__video {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-video-card__content {
+      width: 100%;
+      max-width: 1440px;
+      margin-inline: auto;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    }
+    @media (min-width: 768px) {
+      .hero-video-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .hero-video-card {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 0 !important;
+        border-radius: 0 !important;
+      }
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary"><main class="flex-1 flex flex-col relative w-full pt-0 pb-28 bg-surface"><div class="flex flex-col w-full relative">
+<!-- Ambient Neon Backdrop Blooms -->
+<div class="absolute -top-10 -right-20 w-80 h-80 rounded-full bg-primary-container/15 blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-96 -left-24 w-80 h-80 rounded-full bg-tertiary/10 blur-[130px] pointer-events-none -z-10"></div>
+<div class="absolute top-[1350px] right-0 w-72 h-72 rounded-full bg-secondary-container/15 blur-[120px] pointer-events-none -z-10"></div>
+<!-- SECTION 1: HERO SPOTLIGHT -->
+<section class="hero-video-section relative w-full px-gutter-mobile pt-space-md pb-space-lg flex flex-col overflow-hidden">
+<!-- Hero Visual Card with Sunset Scrim -->
+<div class="hero-video-card relative w-full rounded-full overflow-hidden p-space-md shadow-[0_12px_40px_rgba(0,0,0,0.85)] min-h-[460px] flex flex-col justify-end">
+<video class="hero-video-card__video" src="/api/hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+<!-- Video stays clear; text contrast comes from a light shadow rather than a scrim. -->
+<!-- Content Floating Inside Hero -->
+<div class="hero-video-card__content relative z-10 flex flex-col gap-space-sm">
+<!-- Live Urgency Badge -->
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded bg-surface-container-high/90 shadow-[0_0_15px_rgba(255,74,142,0.35)]">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">LIMITED LAUNCH NIGHT PASSES</span>
+</div>
+<!-- Hero Headline -->
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase text-tertiary tracking-widest font-semibold">OCEAN DRIVE VENUE • MIAMI</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-white leading-none mt-1">
+            EXPERIENCE <span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">LEONIDA FIRST</span>
+</h1>
+</div>
+<!-- Description -->
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+          Live PS5 &amp; Xbox Series X 4K 120Hz gameplay stations, IMAX surround sound watch party, and exclusive launch-night swag drops.
+        </p>
+<!-- Live Station Availability Meter -->
+<div class="flex flex-col gap-1.5 p-2.5 rounded-lg bg-surface-container/90">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">sports_esports</span>
+              14 / 20 STATIONS LEFT
+            </span>
+<span class="font-label-sm text-label-sm font-bold text-tertiary uppercase">HIGH DEMAND</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container via-secondary-container to-tertiary w-[70%] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<a class="w-full py-3 px-3 rounded bg-gradient-to-r from-primary-container via-primary-container to-secondary-container text-white font-label-lg text-label-lg uppercase tracking-wider shadow-[0_0_20px_rgba(255,74,142,0.45)] flex items-center justify-center text-center active:scale-[0.98] transition-transform" href="#tickets-section">
+            CLAIM PASS NOW
+          </a>
+<a class="w-full py-3 px-3 rounded bg-surface-container-high/90 text-tertiary font-label-lg text-label-lg uppercase tracking-wider shadow-[0_0_12px_rgba(0,219,233,0.2)] flex items-center justify-center text-center hover:bg-surface-bright active:scale-[0.98] transition-all" href="#tiers-anchor">
+            EXPLORE TIERS
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- HIGHLIGHT STATS TICKER STRIP -->
+<section class="w-full px-gutter-mobile py-space-xs">
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-lowest/80 backdrop-blur-xl p-space-sm rounded-xl">
+<div class="flex flex-col items-center justify-center text-center py-1">
+<span class="font-headline-md text-headline-md text-tertiary leading-none">4K</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">120Hz Arena</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center py-1">
+<span class="font-headline-md text-headline-md text-primary leading-none">IMAX</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Surround Arc</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center py-1">
+<span class="font-headline-md text-headline-md text-secondary leading-none">VIP</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Open Bar</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: TICKET TIERS -->
+<section class="w-full px-gutter-mobile pt-space-lg pb-space-md flex flex-col gap-space-md" id="tickets-section">
+<!-- Header -->
+<div class="flex flex-col" id="tiers-anchor">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">confirmation_number</span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary font-bold">VIP ACCESS PASSES</span>
+</div>
+<h2 class="font-headline-md text-headline-md uppercase text-white tracking-wide mt-0.5">CHOOSE YOUR TIER</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Immediate digital pass wallet delivery with security QR.</p>
+</div>
+<!-- TIER 1: THE SPECTATOR -->
+<div class="flex flex-col bg-surface-container/85 backdrop-blur-xl rounded-xl p-space-md shadow-[0_4px_24px_rgba(0,0,0,0.5)] transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold tracking-wider">ENTRY TIER</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wider mt-1.5">THE SPECTATOR</h3>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-tertiary leading-none">$35</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Single Entry</span>
+</div>
+</div>
+<div class="h-px w-full bg-surface-variant/40 my-space-sm"></div>
+<!-- Feature Bullets -->
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">done</span>
+<span>Watch Party &amp; Giant IMAX Arena Access</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">done</span>
+<span>Complimentary "Vice Punch" Welcome Cocktail</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">done</span>
+<span>Commemorative 80s Leonida Lanyard &amp; Pin</span>
+</li>
+</ul>
+<button class="mt-space-md w-full py-2.5 rounded bg-surface-container-high text-on-surface hover:text-tertiary font-label-md text-label-md uppercase tracking-widest transition-colors flex items-center justify-center gap-1 active:scale-98" onclick="selectTier('THE SPECTATOR', 35)" type="button">
+        SELECT SPECTATOR
+      </button>
+</div>
+<!-- TIER 2: THE HUSTLER (FEATURED / MOST POPULAR) -->
+<div class="relative flex flex-col bg-surface-container-high/90 backdrop-blur-2xl rounded-xl p-space-md shadow-[0_0_30px_rgba(255,74,142,0.35)] overflow-hidden">
+<!-- Glow Accent Bars -->
+<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary-container via-secondary-container to-tertiary"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase px-2 py-0.5 rounded bg-gradient-to-r from-primary-container to-secondary-container text-white font-bold tracking-widest shadow-[0_0_12px_rgba(255,74,142,0.5)]">
+            MOST POPULAR • HANDS-ON
+          </span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-white tracking-wider mt-1.5 flex items-center gap-2">
+            THE HUSTLER
+            <span class="material-symbols-outlined text-secondary text-[20px]">stars</span>
+</h3>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-primary leading-none">$85</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider mt-0.5">Only 8 Slots Left</span>
+</div>
+</div>
+<div class="h-px w-full bg-primary-container/20 my-space-sm"></div>
+<!-- Features -->
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2 text-white font-semibold">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>45-Min Dedicated PS5 / Xbox Series X 4K Station</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">done</span>
+<span>Full Watch Party + IMAX Live Stream Access</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">done</span>
+<span>Limited Edition Vice City Launch Vintage Tee (M/L/XL)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">done</span>
+<span>2x Craft Drink Vouchers + Signature Glass</span>
+</li>
+</ul>
+<!-- Interactive Quantity & Action Bar -->
+<div class="mt-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex items-center bg-surface-container-lowest rounded p-1">
+<button class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface active:scale-95 transition-transform" id="qty-minus" onclick="updateQty(-1)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-10 text-center font-label-lg text-label-lg font-bold text-white" id="ticket-qty">1</span>
+<button class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface active:scale-95 transition-transform" id="qty-plus" onclick="updateQty(1)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<button class="flex-1 py-3 px-3 rounded bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-lg text-label-lg uppercase tracking-wider shadow-[0_0_18px_rgba(255,74,142,0.4)] flex items-center justify-center gap-2 active:scale-98 transition-transform" onclick="selectTier('THE HUSTLER', 85)" type="button">
+<span>CLAIM HUSTLER PASS</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- TIER 3: THE KINGPIN -->
+<div class="flex flex-col bg-surface-container/85 backdrop-blur-xl rounded-xl p-space-md shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-bold tracking-widest">
+            ULTRA VIP • SUITE
+          </span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wider mt-1.5">THE KINGPIN</h3>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-secondary leading-none">$195</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">All-Inclusive</span>
+</div>
+</div>
+<div class="h-px w-full bg-surface-variant/40 my-space-sm"></div>
+<!-- Feature Bullets -->
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">hotel_class</span>
+<span>Uninterrupted 90-Min Private Lounge Gameplay Session</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span>Collector's Leonida Steelbook Box + Exclusive Swag Bundle</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span>Open Premium Bar (All Evening) + Catered Food Bites</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span>Express Red Carpet Line-Skip &amp; VIP DJ Deck Access</span>
+</li>
+</ul>
+<button class="mt-space-md w-full py-2.5 rounded bg-surface-container-high text-secondary hover:bg-secondary-container/20 font-label-md text-label-md uppercase tracking-widest transition-colors flex items-center justify-center gap-1 active:scale-98" onclick="selectTier('THE KINGPIN', 195)" type="button">
+        SELECT KINGPIN VIP
+      </button>
+</div>
+</section>
+<!-- SECTION 3: EVENT SCHEDULE & VENUE TIMELINE -->
+<section class="w-full px-gutter-mobile pt-space-md pb-space-lg flex flex-col gap-space-md">
+<!-- Header -->
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">timer</span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-tertiary font-bold">TIMELINE MATRIX</span>
+</div>
+<h2 class="font-headline-md text-headline-md uppercase text-white tracking-wide mt-0.5">LAUNCH NIGHT RUN OF SHOW</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Synchronized countdown across all venue displays and live streams.</p>
+</div>
+<!-- Timeline Container -->
+<div class="flex flex-col bg-surface-container-lowest/80 backdrop-blur-xl rounded-xl p-space-md shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+<!-- Item 1 -->
+<div class="flex items-start gap-space-sm pb-space-md relative">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-tertiary shadow-[0_0_10px_#00dbe9]"></div>
+<div class="w-0.5 flex-1 bg-surface-variant/50 mt-1"></div>
+</div>
+<div class="flex flex-col flex-1 pb-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-tertiary">09:00 PM</span>
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">LOBBY</span>
+</div>
+<span class="font-headline-sm text-headline-sm uppercase text-white text-[16px] leading-snug mt-0.5">Doors Open &amp; Synthwave Pre-Party</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Red carpet check-in, photo op with 80s supercar display, and custom neon cocktails.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-space-sm pb-space-md relative">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-primary-container shadow-[0_0_10px_#ff4a8e]"></div>
+<div class="w-0.5 flex-1 bg-surface-variant/50 mt-1"></div>
+</div>
+<div class="flex flex-col flex-1 pb-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">11:00 PM</span>
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.2 rounded bg-primary-container/20 text-primary">STAGE</span>
+</div>
+<span class="font-headline-sm text-headline-sm uppercase text-white text-[16px] leading-snug mt-0.5">Live DJ Set &amp; Vice City Cosplay Contest</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Synthwave headliner performance plus $1,000 community best retro outlaw fit award.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-space-sm pb-space-md relative">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#ffb68a]"></div>
+<div class="w-0.5 flex-1 bg-surface-variant/50 mt-1"></div>
+</div>
+<div class="flex flex-col flex-1 pb-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-secondary">11:30 PM</span>
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">IMAX ARC</span>
+</div>
+<span class="font-headline-sm text-headline-sm uppercase text-white text-[16px] leading-snug mt-0.5">Global Stream &amp; Midnight Countdown</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Dolby Atmos synchronized countdown linked directly to world launch telemetry.</p>
+</div>
+</div>
+<!-- Item 4 (Highlight Midnight) -->
+<div class="flex items-start gap-space-sm pb-space-md relative">
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 -ml-0.5 rounded-full bg-gradient-to-tr from-primary-container to-secondary-container shadow-[0_0_15px_#ff4a8e] ring-2 ring-white/40"></div>
+<div class="w-0.5 flex-1 bg-surface-variant/50 mt-1"></div>
+</div>
+<div class="flex flex-col flex-1 p-2 rounded bg-surface-container/70 shadow-[0_0_15px_rgba(255,74,142,0.2)]">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_fire_department</span>
+              12:00 AM MIDNIGHT
+            </span>
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.2 rounded bg-primary-container text-white font-bold animate-pulse">LIVE PLAY</span>
+</div>
+<span class="font-headline-sm text-headline-sm uppercase text-white text-[17px] leading-snug mt-1">Leonida Servers Unlock: First Gameplay</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Station holders take command of PS5 &amp; Xbox rigs. First roam across Vice City.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-start gap-space-sm relative">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-surface-bright"></div>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface-variant">02:30 AM</span>
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant">AFTERHOURS</span>
+</div>
+<span class="font-headline-sm text-headline-sm uppercase text-white text-[16px] leading-snug mt-0.5">Speedruns &amp; Swag Raffle</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Grand theft vehicle speed trials and custom console wraps giveaway.</p>
+</div>
+</div>
+</div>
+<!-- Venue Hardware & Setup Grid -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<!-- Card 1 -->
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container/70 backdrop-blur-md">
+<span class="material-symbols-outlined text-primary text-[24px]">tv_gen</span>
+<span class="font-label-md text-label-md uppercase text-white font-bold mt-1">4K 120Hz</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-0.5">Low-latency OLED setups</span>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container/70 backdrop-blur-md">
+<span class="material-symbols-outlined text-tertiary text-[24px]">surround_sound</span>
+<span class="font-label-md text-label-md uppercase text-white font-bold mt-1">Atmos 360°</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-0.5">IMAX cinema sound</span>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container/70 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[24px]">local_bar</span>
+<span class="font-label-md text-label-md uppercase text-white font-bold mt-1">Neon Bar</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-0.5">Retro signature cocktails</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: STREAMLINED CHECKOUT DRAWER & TICKET PASS PREVIEW -->
+<section class="w-full px-gutter-mobile pt-space-md pb-space-lg flex flex-col gap-space-md" id="checkout-section">
+<!-- Header -->
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">credit_card</span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary font-bold">EXPRESS CHECKOUT</span>
+</div>
+<h2 class="font-headline-md text-headline-md uppercase text-white tracking-wide mt-0.5">INSTANT PASS RESERVATION</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lock your station slot before launch threshold closes.</p>
+</div>
+<!-- Holographic Preview Pass Card -->
+<div class="relative w-full rounded-2xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-md shadow-[0_16px_40px_rgba(0,0,0,0.8)] overflow-hidden">
+<!-- Ambient Shimmer Keyline -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/10 via-transparent to-tertiary/10 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">airplane_ticket</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">DIGITAL PASS PREVIEW</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-bold tracking-widest">
+            AUTHENTIC SEAL
+          </span>
+</div>
+<!-- Ticket Body with Mock QR & Hologram -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest/90 backdrop-blur-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">HOLDER NAME</span>
+<span class="font-headline-sm text-headline-sm uppercase text-white tracking-wide leading-none mt-0.5">ALEX VANCE</span>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] uppercase">TIER</span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase" id="preview-tier-name">THE HUSTLER</span>
+</div>
+<div class="h-4 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] uppercase">ACCESS CODE</span>
+<span class="font-label-md text-label-md text-tertiary font-mono font-bold tracking-wider">LEONIDA-VIP-8841</span>
+</div>
+</div>
+</div>
+<!-- Mock QR Matrix Visual -->
+<div class="flex flex-col items-center justify-center p-2 rounded-lg bg-white shadow-[0_0_12px_rgba(255,255,255,0.2)]">
+<svg class="w-16 h-16 text-black" fill="currentColor" viewbox="0 0 100 100">
+<!-- Corner Square Top Left -->
+<rect fill="black" height="28" width="28" x="5" y="5"></rect>
+<rect fill="white" height="20" width="20" x="9" y="9"></rect>
+<rect fill="black" height="12" width="12" x="13" y="13"></rect>
+<!-- Corner Square Top Right -->
+<rect fill="black" height="28" width="28" x="67" y="5"></rect>
+<rect fill="white" height="20" width="20" x="71" y="9"></rect>
+<rect fill="black" height="12" width="12" x="75" y="13"></rect>
+<!-- Corner Square Bottom Left -->
+<rect fill="black" height="28" width="28" x="5" y="67"></rect>
+<rect fill="white" height="20" width="20" x="9" y="71"></rect>
+<rect fill="black" height="12" width="12" x="13" y="75"></rect>
+<!-- QR Data Matrix Dots -->
+<rect fill="black" height="8" width="8" x="38" y="10"></rect>
+<rect fill="black" height="8" width="8" x="50" y="15"></rect>
+<rect fill="black" height="8" width="8" x="38" y="26"></rect>
+<rect fill="black" height="8" width="8" x="10" y="42"></rect>
+<rect fill="black" height="8" width="8" x="22" y="46"></rect>
+<rect fill="black" height="10" width="10" x="38" y="40"></rect>
+<rect fill="black" height="8" width="8" x="54" y="38"></rect>
+<rect fill="black" height="8" width="8" x="68" y="44"></rect>
+<rect fill="black" height="10" width="10" x="82" y="42"></rect>
+<rect fill="black" height="8" width="8" x="42" y="60"></rect>
+<rect fill="black" height="10" width="10" x="56" y="58"></rect>
+<rect fill="black" height="8" width="8" x="72" y="68"></rect>
+<rect fill="black" height="8" width="8" x="84" y="78"></rect>
+<rect fill="black" height="12" width="12" x="44" y="76"></rect>
+<rect fill="black" height="8" width="8" x="60" y="80"></rect>
+</svg>
+<span class="text-[8px] font-mono text-black font-bold uppercase tracking-widest mt-1">SCAN AT DOOR</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Checkout Form & Payment Panel -->
+<div class="flex flex-col bg-surface-container/90 backdrop-blur-2xl rounded-2xl p-space-md shadow-[0_12px_32px_rgba(0,0,0,0.7)]">
+<!-- Order Calculation Breakdown -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface" id="order-qty-label">1x The Hustler Pass</span>
+<span class="font-mono text-white font-semibold" id="order-tier-total">$85.00</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Leonida Venue Security Fee</span>
+<span class="font-mono text-on-surface-variant font-semibold">$5.00</span>
+</div>
+<div class="h-px w-full bg-surface-variant/40 my-1"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-white">TOTAL DUE</span>
+<span class="font-headline-sm text-headline-sm text-tertiary leading-none font-bold" id="order-grand-total">$90.00</span>
+</div>
+</div>
+<!-- Promo Code Field -->
+<div class="mt-space-md flex gap-2">
+<div class="relative flex-1">
+<input class="w-full h-11 px-3 rounded bg-surface-container-lowest text-white font-label-md text-label-md uppercase tracking-wider placeholder-on-surface-variant focus:outline-none focus:shadow-[0_0_12px_rgba(255,74,142,0.4)]" id="promo-input" placeholder="PROMO CODE" type="text" value="VICE2025"/>
+</div>
+<button class="h-11 px-4 rounded bg-surface-container-high text-tertiary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-bright active:scale-95 transition-transform" onclick="applyPromo()" type="button">
+          APPLY
+        </button>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-1 hidden tracking-wider uppercase" id="promo-status">VICE2025 APPLIED: 10% PASS DISCOUNT INCLUDED</span>
+<!-- Payment Method Switcher Tabs -->
+<div class="mt-space-md flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-bold">SELECT PAYMENT METHOD</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="pay-btn flex flex-col items-center justify-center p-2 rounded bg-surface-container-lowest text-white shadow-[0_0_10px_rgba(0,219,233,0.3)] transition-all" onclick="setPayMethod('card', this)" type="button">
+<span class="material-symbols-outlined text-[20px] text-tertiary">credit_card</span>
+<span class="font-label-sm text-label-sm uppercase text-[10px] mt-1 font-bold">CARD</span>
+</button>
+<button class="pay-btn flex flex-col items-center justify-center p-2 rounded bg-surface-container-high text-on-surface-variant hover:text-white transition-all" onclick="setPayMethod('apple', this)" type="button">
+<span class="material-symbols-outlined text-[20px]">phone_iphone</span>
+<span class="font-label-sm text-label-sm uppercase text-[10px] mt-1 font-bold">APPLE PAY</span>
+</button>
+<button class="pay-btn flex flex-col items-center justify-center p-2 rounded bg-surface-container-high text-on-surface-variant hover:text-white transition-all" onclick="setPayMethod('mpesa', this)" type="button">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="font-label-sm text-label-sm uppercase text-[10px] mt-1 font-bold">MOBILE WALLET</span>
+</button>
+</div>
+</div>
+<!-- Attendee Quick Input -->
+<div class="mt-space-md flex flex-col gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">NAME ON ID BADGE</label>
+<input class="w-full h-11 px-3 rounded bg-surface-container-lowest text-white font-body-md text-body-md focus:outline-none focus:shadow-[0_0_12px_rgba(0,219,233,0.3)]" id="attendee-name" oninput="updateBadgeName(this.value)" type="text" value="Alex Vance"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">EMAIL FOR WALLET PASS</label>
+<input class="w-full h-11 px-3 rounded bg-surface-container-lowest text-white font-body-md text-body-md focus:outline-none" type="email" value="alex.vance@vicecity.net"/>
+</div>
+</div>
+<!-- Complete Order Glowing Primary CTA -->
+<button class="mt-space-lg w-full py-4 rounded-xl bg-gradient-to-r from-primary-container via-secondary-container to-primary-container text-white font-headline-sm text-headline-sm uppercase tracking-wider shadow-[0_0_25px_rgba(255,74,142,0.5)] flex items-center justify-center gap-2 active:scale-[0.98] transition-all" onclick="triggerPurchase()" type="button">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+<span>COMPLETE ORDER &amp; GET PASS</span>
+</button>
+<!-- Trust Badges & Policies -->
+<div class="flex items-center justify-center gap-4 mt-space-sm pt-space-xs text-on-surface-variant">
+<span class="font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">shield</span>
+          256-BIT ENCRYPTED
+        </span>
+<span class="font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">repeat</span>
+          TRANSFERABLE PASS
+        </span>
+</div>
+</div>
+</section>
+<!-- CONFIRMATION TOAST NOTIFICATION (Hidden by default) -->
+<div class="fixed bottom-24 inset-x-gutter-mobile max-w-sm mx-auto z-50 p-space-sm rounded-xl bg-surface-container-highest/95 backdrop-blur-2xl shadow-[0_0_25px_rgba(0,219,233,0.5)] translate-y-32 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3" id="order-toast">
+<div class="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-headline-sm text-headline-sm text-[16px] text-white uppercase leading-none">ORDER CONFIRMED!</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px] mt-0.5">Your Leonida Launch Pass was added to your wallet.</span>
+</div>
+</div>
+</div>
+<script>
+  let currentTierName = "THE HUSTLER";
+  let currentTierPrice = 85;
+  let currentQty = 1;
+  let discountApplied = false;
+
+  function updateQty(delta) {
+    const newQty = currentQty + delta;
+    if (newQty >= 1 && newQty <= 4) {
+      currentQty = newQty;
+      document.getElementById('ticket-qty').innerText = currentQty;
+      renderTotals();
+    }
+  }
+
+  function selectTier(tierName, price) {
+    currentTierName = tierName;
+    currentTierPrice = price;
+    document.getElementById('preview-tier-name').innerText = tierName;
+    renderTotals();
+    
+    // Smooth scroll to checkout summary
+    const checkoutEl = document.getElementById('checkout-section');
+    if (checkoutEl) {
+      checkoutEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function renderTotals() {
+    const rawTotal = currentTierPrice * currentQty;
+    const finalPassTotal = discountApplied ? Math.round(rawTotal * 0.9) : rawTotal;
+    const grandTotal = finalPassTotal + 5; // $5 venue fee
+
+    document.getElementById('order-qty-label').innerText = `${currentQty}x ${currentTierName}`;
+    document.getElementById('order-tier-total').innerText = `$${finalPassTotal}.00`;
+    document.getElementById('order-grand-total').innerText = `$${grandTotal}.00`;
+  }
+
+  function applyPromo() {
+    const input = document.getElementById('promo-input').value.trim().toUpperCase();
+    const status = document.getElementById('promo-status');
+    if (input === 'VICE2025') {
+      discountApplied = true;
+      status.classList.remove('hidden');
+      renderTotals();
+    }
+  }
+
+  function updateBadgeName(val) {
+    const nameEl = document.querySelector('#checkout-section .font-headline-sm');
+    if (nameEl) {
+      nameEl.innerText = val.trim() ? val.toUpperCase() : 'ATTENDEE PASS';
+    }
+  }
+
+  function setPayMethod(method, btn) {
+    document.querySelectorAll('.pay-btn').forEach(b => {
+      b.classList.remove('bg-surface-container-lowest', 'text-white', 'shadow-[0_0_10px_rgba(0,219,233,0.3)]');
+      b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+    });
+    btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+    btn.classList.add('bg-surface-container-lowest', 'text-white', 'shadow-[0_0_10px_rgba(0,219,233,0.3)]');
+  }
+
+  function triggerPurchase() {
+    const toast = document.getElementById('order-toast');
+    toast.classList.remove('translate-y-32', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-32', 'opacity-0');
+    }, 4500);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe px-gutter-mobile mb-2" data-active-classes="text-tertiary relative after:content-[''] after:absolute after:-bottom-1 after:w-5 after:h-0.5 after:bg-tertiary after:shadow-[0_0_8px_#00dbe9] font-bold"><div class="max-w-md mx-auto h-16 rounded-full bg-surface-container/90 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] px-4 flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] transition-colors text-tertiary relative after:content-[''] after:absolute after:-bottom-1 after:w-5 after:h-0.5 after:bg-tertiary after:shadow-[0_0_8px_#00dbe9] font-bold" data-path="event" href="#"><span class="material-symbols-outlined text-[20px]">local_fire_department</span><span class="font-label-sm text-label-sm uppercase tracking-wider mt-0.5">Event</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="tickets" href="#"><span class="material-symbols-outlined text-[20px]">confirmation_number</span><span class="font-label-sm text-label-sm uppercase tracking-wider mt-0.5">Tickets</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="schedule" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="font-label-sm text-label-sm uppercase tracking-wider mt-0.5">Schedule</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="checkout" href="#"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="font-label-sm text-label-sm uppercase tracking-wider mt-0.5">Cart</span></a></div></nav></body></html>

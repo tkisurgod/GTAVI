@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #151123;
+}
+
+.launch-frame {
+  width: 100%;
+  height: 100dvh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.launch-frame__document {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #151123;
+}
